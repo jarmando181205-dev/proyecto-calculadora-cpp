@@ -1,0 +1,141 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+// Prototipos de funciones
+void mostrarMenu();
+double calcularAreaCirculo(double radio);
+double calcularPerimetroCirculo(double radio);
+double calcularAreaTriangulo(double base, double altura);
+double calcularVolumenCilindro(double radio, double altura);
+void mostrarManual();
+
+int main() {
+    int opcion;
+    bool repetir = true;
+
+    cout << "==========================================" << endl;
+    cout << "   CALCULADORA DE FÓRMULAS MATEMÁTICAS    " << endl;
+    cout << "==========================================" << endl << endl;
+
+    // Mostrar manual al iniciar
+    mostrarManual();
+
+    while (repetir) {
+        mostrarMenu();
+        cout << "\nIngrese su opción: ";
+        cin >> opcion;
+        cout << endl;
+
+        switch (opcion) {
+            case 1: {
+                double r;
+                cout << "=== ÁREA DE CÍRCULO ===" << endl;
+                cout << "Ingrese el radio: ";
+                cin >> r;
+                if (r < 0) {
+                    cout << " Error: El radio no puede ser negativo." << endl;
+                } else {
+                    cout << " Área: " << fixed << setprecision(4) << calcularAreaCirculo(r) << endl;
+                }
+                break;
+            }
+            case 2: {
+                double r;
+                cout << "=== PERÍMETRO DE CÍRCULO ===" << endl;
+                cout << "Ingrese el radio: ";
+                cin >> r;
+                if (r < 0) {
+                    cout << " Error: El radio no puede ser negativo." << endl;
+                } else {
+                    cout << " Perímetro: " << fixed << setprecision(4) << calcularPerimetroCirculo(r) << endl;
+                }
+                break;
+            }
+            case 3: {
+                double b, h;
+                cout << "=== ÁREA DE TRIÁNGULO ===" << endl;
+                cout << "Ingrese la base: ";
+                cin >> b;
+                cout << "Ingrese la altura: ";
+                cin >> h;
+                if (b < 0 || h < 0) {
+                    cout << " Error: Base y altura no pueden ser negativas." << endl;
+                } else {
+                    cout << " Área: " << fixed << setprecision(4) << calcularAreaTriangulo(b, h) << endl;
+                }
+                break;
+            }
+            case 4: {
+                double r, h;
+                cout << "=== VOLUMEN DE CILINDRO ===" << endl;
+                cout << "Ingrese el radio: ";
+                cin >> r;
+                cout << "Ingrese la altura: ";
+                cin >> h;
+                if (r < 0 || h < 0) {
+                    cout << " Error: Radio y altura no pueden ser negativos." << endl;
+                } else {
+                    cout << " Volumen: " << fixed << setprecision(4) << calcularVolumenCilindro(r, h) << endl;
+                }
+                break;
+            }
+            case 5:
+                cout << " Mostrando manual de usuario..." << endl;
+                mostrarManual();
+                break;
+            case 0:
+                cout << " Gracias por usar el sistema. ¡Hasta pronto!" << endl;
+                repetir = false;
+                break;
+            default:
+                cout << " Opción no válida. Intente nuevamente." << endl;
+        }
+        cout << "\n------------------------------------------\n";
+    }
+
+    return 0;
+}
+
+void mostrarMenu() {
+    cout << "\n=========== MENÚ DE OPCIONES ============" << endl;
+    cout << "1. Calcular área de un círculo" << endl;
+    cout << "2. Calcular perímetro de un círculo" << endl;
+    cout << "3. Calcular área de un triángulo" << endl;
+    cout << "4. Calcular volumen de un cilindro" << endl;
+    cout << "5. Ver manual de usuario" << endl;
+    cout << "0. Salir del programa" << endl;
+    cout << "==========================================" << endl;
+}
+
+double calcularAreaCirculo(double radio) {
+    return M_PI * pow(radio, 2);
+}
+
+double calcularPerimetroCirculo(double radio) {
+    return 2 * M_PI * radio;
+}
+
+double calcularAreaTriangulo(double base, double altura) {
+    return (base * altura) / 2;
+}
+
+double calcularVolumenCilindro(double radio, double altura) {
+    return M_PI * pow(radio, 2) * altura;
+}
+
+void mostrarManual() {
+    cout << "\n=============== MANUAL DE USUARIO ===============" << endl;
+    cout << "1. Al iniciar el programa, se presenta este manual." << endl;
+    cout << "2. Se mostrará un menú con las opciones disponibles." << endl;
+    cout << "3. Escriba el número de la opción deseada y presione Enter." << endl;
+    cout << "4. Ingrese los valores solicitados cuando se le pidan." << endl;
+    cout << "5. El programa validará que los valores no sean negativos." << endl;
+    cout << "6. El resultado se mostrará con 4 decimales." << endl;
+    cout << "7. Puede repetir cálculos las veces que desee." << endl;
+    cout << "8. Seleccione '0' para salir del sistema." << endl;
+    cout << "=================================================\n" << endl;
+}

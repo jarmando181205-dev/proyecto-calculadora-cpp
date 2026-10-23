@@ -1,0 +1,50 @@
+==================== MANUAL DE USUARIO ====================
+Programa: Calculadora de Fórmulas Matemáticas
+Lenguaje: C++
+Fecha de entrega: 22 de octubre
+
+1. INICIO DEL PROGRAMA
+- Al ejecutar el archivo compilado, aparecerá automáticamente
+  este manual antes de mostrar el menú principal.
+
+2. NAVEGACIÓN
+- Se desplegará un menú con 6 opciones numeradas.
+- Digite SOLO el número de la opción y presione la tecla Enter.
+
+3. DESCRIPCIÓN DE CADA OPCIÓN
+  Opción 1 → Área de Círculo
+    Fórmula: A = π × r²
+    Dato requerido: radio
+    Restricción: radio ≥ 0
+
+  Opción 2 → Perímetro de Círculo
+    Fórmula: P = 2 × π × r
+    Dato requerido: radio
+    Restricción: radio ≥ 0
+
+  Opción 3 → Área de Triángulo
+    Fórmula: A = (base × altura) / 2
+    Datos requeridos: base, altura
+    Restricción: ambos ≥ 0
+
+  Opción 4 → Volumen de Cilindro
+    Fórmula: V = π × r² × h
+    Datos requeridos: radio, altura
+    Restricción: ambos ≥ 0
+
+  Opción 5 → Volver a mostrar este manual
+
+  Opción 0 → Salir del programa
+
+4. VALIDACIONES
+- Si ingresa un número negativo, el sistema le indicará
+  que el valor no es válido.
+- Los resultados se muestran con 4 cifras decimales.
+
+5. COMPILACIÓN Y EJECUCIÓN
+- Comando de compilación:
+  g++ calculadora_formulas.cpp -o calculadora -lm
+- Ejecución:
+  ./calculadora   (en Linux/Mac)
+  calculadora.exe (en Windows)
+===========================================================
